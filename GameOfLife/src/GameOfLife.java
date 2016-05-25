@@ -6,7 +6,7 @@ public class GameOfLife
 {
 	private int m_columnCount = 70;
 	private int m_rowCount = 70;
-    private BitSet m_data = new BitSet(m_columnCount * m_rowCount);
+	private BitSet m_data = new BitSet(m_columnCount * m_rowCount);
 	private GameOfLifeGui m_newGui = new GameOfLifeGui(this, m_columnCount, m_rowCount);
 	private StepGenerator m_newGenerator = new StepGenerator(m_rowCount, m_columnCount);
 	private RedAIEngine m_redAI = new RedAIEngine(this, m_columnCount, m_rowCount);
@@ -72,5 +72,11 @@ public class GameOfLife
     public BitSet getData()
     {
     	return m_data;
+    }
+    
+    public void createAICores()
+    {
+	m_data = m_blueAI.createBlueCore();
+	m_data = m_redAI.createRedCore();
     }
 }

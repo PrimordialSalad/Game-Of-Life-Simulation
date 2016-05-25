@@ -15,10 +15,10 @@ import javax.swing.JPanel;
 public class GameOfLifeGridRenderer extends JPanel
 {	
 	
-	private Point mouseOverCell = null;
-	private Point clickedCell = null;
-	private int m_columnCount;
-	private int m_rowCount;
+    private Point mouseOverCell = null;
+    private Point clickedCell = null;
+    private int m_columnCount;
+    private int m_rowCount;
     private GameOfLifeGui m_gameGui;
     
     

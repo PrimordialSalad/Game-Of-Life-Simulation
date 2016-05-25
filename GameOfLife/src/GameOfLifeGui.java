@@ -13,7 +13,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class GameOfLifeGui
 {
-	private JFrame m_frame;
+    private JFrame m_frame;
 	
 	
     private int m_columnCount;
@@ -55,6 +55,7 @@ public class GameOfLifeGui
         	public void actionPerformed(ActionEvent e)
         	{
         		m_gameOfLife.setRun(true);
+        		m_gameOfLife.createAICores();
         	}
         });
         
