@@ -13,6 +13,7 @@ public class GameOfLife
 	private BlueAIEngine m_blueAI = new BlueAIEngine(this, m_columnCount, m_rowCount);
 	private boolean m_notDone = true;
 	private boolean m_run = false;
+	private Point gliderCenter = new Point(36,36); // This needs to be recreated.  Here for testing.
 	
 	public static void main(String[] args)
 	{
@@ -52,7 +53,7 @@ public class GameOfLife
 		return result;
 	}
 	
-	public void exit()
+	public void setWon()
 	{
 		m_notDone = false;
 	}
@@ -74,9 +75,20 @@ public class GameOfLife
     	return m_data;
     }
     
+ // Red has a big disadvantage because it is easy to get gliders to move down.  Red has to get them to move up.
     public void createAICores()
     {
 	m_data = m_blueAI.createBlueCore();
 	m_data = m_redAI.createRedCore();
+    }
+    
+    public void createGliders()
+    {
+	m_data = m_redAI.createGlider(gliderCenter);
+    }
+    
+    public int indexFinder(int row, int column)
+    {
+	return ((row * m_columnCount) + column);
     }
 }

@@ -56,6 +56,7 @@ public class GameOfLifeGui
         	{
         		m_gameOfLife.setRun(true);
         		m_gameOfLife.createAICores();
+        		m_gameOfLife.createGliders();
         	}
         });
         

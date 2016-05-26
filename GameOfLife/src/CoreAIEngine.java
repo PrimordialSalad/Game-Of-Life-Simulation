@@ -15,4 +15,9 @@ public class CoreAIEngine
 	    return ((row * m_columnCount) + column);
 	}
 	
+	public int lengthFinder()
+	{
+	    return (m_columnCount * m_rowCount);
+	}
+	
 }
