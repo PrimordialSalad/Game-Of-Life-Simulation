@@ -15,27 +15,27 @@ public class BlueAIEngine
 		core = new CoreAIEngine(m_columnCount, m_rowCount);
 	}
 	
-	public BitSet createBlueCore() // The blue core is in the top left corner.
+	public BitSet createBlueCore() // The blue core is on the left hand side.
 	{
 	   BitSet result =  m_game.getData();
 	   
-	   result.set(core.indexFinder(0, 0));
-	   result.set(core.indexFinder(1, 0));
-	   result.set(core.indexFinder(0, 1));
-	   result.set(core.indexFinder(1, 1));
-	   result.set(core.indexFinder(2, 2));
-	   result.set(core.indexFinder(3, 2));
-	   result.set(core.indexFinder(2, 3));
-	   result.set(core.indexFinder(3, 3));
+	   result.set(core.indexFinder(m_rowCount - (m_rowCount / 2), 0));
+	   result.set(core.indexFinder(m_rowCount - (m_rowCount / 2) + 1, 0));
+	   result.set(core.indexFinder(m_rowCount - (m_rowCount / 2), 1));
+	   result.set(core.indexFinder(m_rowCount - (m_rowCount / 2) + 1, 1));
+	   result.set(core.indexFinder(m_rowCount - (m_rowCount / 2) + 3, 2));
+	   result.set(core.indexFinder(m_rowCount - (m_rowCount / 2) + 2, 2));
+	   result.set(core.indexFinder(m_rowCount - (m_rowCount / 2) + 3, 3));
+	   result.set(core.indexFinder(m_rowCount - (m_rowCount / 2) + 2, 3));
 	   
 	   return result;
 	}
 	
 	public void won()
 	{
-	    if(!(m_game.getData().get(core.indexFinder(0, m_columnCount - 1))))
+	    if(!(m_game.getData().get(core.indexFinder(m_rowCount - (m_rowCount / 2) , m_columnCount - 1))))
 		    {
-			m_game.setWon();
+				m_game.setWon();
 		    }
 	}
 }

@@ -20,6 +20,7 @@ public class GameOfLifeGridRenderer extends JPanel
     private int m_columnCount;
     private int m_rowCount;
     private GameOfLifeGui m_gameGui;
+    private int m_mode = 0;
     
     
     public GameOfLifeGridRenderer(GameOfLifeGui gameGui, int columnCount, int rowCount)
@@ -81,7 +82,7 @@ public class GameOfLifeGridRenderer extends JPanel
     						if(column >=0 && row >= 0 && column < m_columnCount && row < m_rowCount)
     						{
     							clickedCell = new Point(column, row);
-    							m_gameGui.toggleCell(clickedCell);
+    							setPointBasedOnMode(clickedCell);
     						}
     					}
     					repaint();
@@ -161,4 +162,63 @@ public class GameOfLifeGridRenderer extends JPanel
     	g2d.dispose();
     }
     
+    public void setMode(int mode)
+    {
+    	m_mode = mode;
+    }
+    
+    public void setPointBasedOnMode(Point centrePoint)
+    {
+    	switch(m_mode)
+    	{
+    	case 1:
+    		createBlinker(m_gameGui.getCellData(), centrePoint);
+    		break;
+    	case 2:
+    		createToad(m_gameGui.getCellData(), centrePoint);
+    		break;
+    	case 3:
+    		createBeacon(m_gameGui.getCellData(), centrePoint);
+    		break;
+    	case 4:
+    		createPulsar(m_gameGui.getCellData(), centrePoint);
+    		break;
+    	case 5:
+    		createPent(m_gameGui.getCellData(), centrePoint);
+    		break;
+    	default:
+    		createIndividualPoint(centrePoint);
+    		break;
+    	}
+    }
+    
+    public void createIndividualPoint(Point center)
+    {
+    	m_gameGui.toggleCell(center);
+    }
+    
+    public void createBlinker(BitSet original, Point center)
+    {
+    	
+    }
+    
+    public void createToad(BitSet original, Point center)
+    {
+    	
+    }
+    
+    public void createBeacon(BitSet original, Point center)
+    {
+    	
+    }
+    
+    public void createPulsar(BitSet original, Point center)
+    {
+    	
+    }
+    
+    public void createPent(BitSet original, Point center)
+    {
+    	
+    }
 }

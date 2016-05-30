@@ -39,7 +39,7 @@ public class GameOfLifeGui
     	m_gameOfLife = game;
     	
     	m_grid = new GameOfLifeGridRenderer(this, m_columnCount, m_rowCount);
-    	m_spritePanel = new SpritePanel();
+    	m_spritePanel = new SpritePanel(m_columnCount, m_rowCount, this);
     	
     	m_frame = new JFrame("GameOfLife");
     	
@@ -56,7 +56,6 @@ public class GameOfLifeGui
         	{
         		m_gameOfLife.setRun(true);
         		m_gameOfLife.createAICores();
-        		m_gameOfLife.createGliders();
         	}
         });
         
@@ -83,11 +82,58 @@ public class GameOfLifeGui
         m_frame.add(m_butClear, BorderLayout.SOUTH);
         m_frame.add(m_butStop, BorderLayout.WEST);
         
-        m_spritePanel.add(new JButton("Blinker"));
-        m_spritePanel.add(new JButton("Toad"));
-        m_spritePanel.add(new JButton("Beacon"));
-        m_spritePanel.add(new JButton("Pulsar"));
-        m_spritePanel.add(new JButton("Pentadecathlon"));
+        
+        m_butBlinker = new JButton("Blinker");
+        m_butBlinker.addActionListener(new ActionListener()
+        	{
+        		public void actionPerformed(ActionEvent e)
+        		{
+        			m_spritePanel.createBlinker();
+        		}
+        	});
+        
+        m_butToad = new JButton("Toad");
+        m_butToad.addActionListener(new ActionListener()
+        	{
+        		public void actionPerformed(ActionEvent e)
+        		{
+        			m_spritePanel.createToad();
+        		}
+        	
+        	});
+        
+        m_butBeacon = new JButton("Beacon");
+        m_butBeacon.addActionListener(new ActionListener()
+        	{
+        		public void actionPerformed(ActionEvent e)
+        		{
+        			m_spritePanel.createBeacon();
+        		}
+        	});
+        
+        m_butPulsar = new JButton("Pulsar");
+        m_butPulsar.addActionListener(new ActionListener()
+        	{
+        		public void actionPerformed(ActionEvent e)
+        		{
+        			m_spritePanel.createPulsar();
+        		}
+        	});
+        
+        m_butPent = new JButton("Pentadecathlon");
+        m_butPent.addActionListener(new ActionListener()
+        	{
+        		public void actionPerformed(ActionEvent e)
+        		{
+        			m_spritePanel.createPent();
+        		}
+        	});
+        
+        m_spritePanel.add(m_butBlinker);
+        m_spritePanel.add(m_butToad);
+        m_spritePanel.add(m_butBeacon);
+        m_spritePanel.add(m_butPulsar);
+        m_spritePanel.add(m_butPent);
         
         m_frame.pack();
         m_frame.setLocationRelativeTo(null);
@@ -109,6 +155,22 @@ public class GameOfLifeGui
             }
         });
     }
+    
+    public void unsetCell(int row, int column)
+    {
+    	m_gameOfLife.unsetCell(row, column);
+    }
+    
+    public void setCell(int row, int column)
+    {
+    	m_gameOfLife.setCell(row, column);
+    }
+    
+    public void setCellData(BitSet data)
+    {
+    	m_gameOfLife.setData(data);
+    }
+    
     public void toggleCell(Point cellToToggle)
     {
     	m_gameOfLife.toggleCell(cellToToggle);

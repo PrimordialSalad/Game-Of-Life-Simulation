@@ -13,7 +13,6 @@ public class GameOfLife
 	private BlueAIEngine m_blueAI = new BlueAIEngine(this, m_columnCount, m_rowCount);
 	private boolean m_notDone = true;
 	private boolean m_run = false;
-	private Point gliderCenter = new Point(36,36); // This needs to be recreated.  Here for testing.
 	
 	public static void main(String[] args)
 	{
@@ -63,6 +62,20 @@ public class GameOfLife
 		m_data = (BitSet)(m_newGenerator.generate(m_data).clone());
 	}
 	
+	public void unsetCell(int row, int column)
+	{
+		final int cellToUnsetIndex = column + (row * m_columnCount);
+		
+		m_data.clear(cellToUnsetIndex);
+	}
+	
+    public void setCell(int row, int column)
+    {
+    	final int cellToSetIndex = column + (row * m_columnCount);
+    	
+    	m_data.set(cellToSetIndex);
+    }
+	
     public void toggleCell(Point cellToToggle)
     {
     	final int cellToToggleIndex = cellToToggle.x + (cellToToggle.y * m_columnCount);
@@ -75,20 +88,16 @@ public class GameOfLife
     	return m_data;
     }
     
- // Red has a big disadvantage because it is easy to get gliders to move down.  Red has to get them to move up.
+    public void setData(BitSet dataToSet)
+    {
+    	m_data = dataToSet;
+    }
+    
     public void createAICores()
     {
-	m_data = m_blueAI.createBlueCore();
-	m_data = m_redAI.createRedCore();
-    }
-    
-    public void createGliders()
-    {
-	m_data = m_redAI.createGlider(gliderCenter);
-    }
-    
-    public int indexFinder(int row, int column)
-    {
-	return ((row * m_columnCount) + column);
+    	
+    	m_data = m_blueAI.createBlueCore();
+    	m_data = m_redAI.createRedCore();
+	
     }
 }
