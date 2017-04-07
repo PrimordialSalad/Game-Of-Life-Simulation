@@ -18,7 +18,7 @@ Black squares denote alive cells and white ones denote dead cells.
 
 The data structure I use is a Bit Set, part of the Java API, which works like a 1-D boolean array.  This is a generalization but the explanation works well enough for this project.  The alive cells are true and the dead cells are false.  More documentation for Bit Sets can be found [here](https://docs.oracle.com/javase/7/docs/api/java/util/BitSet.html)
 
-The GUI, pictured above, has the functionality of allowing the user to place what are called Oscillators.  More information on these can be found on the Game of Life link above.  In addition, the GUI gives the user the ability to start, stop, and reset the simulation.
+The GUI, pictured above, has the functionality of allowing the user to place what are called Oscillators, using the JButtons displayed on the right side.  More information on these can be found on the Game of Life link above.  In addition, the GUI gives the user the ability to start, stop, and reset the simulation using the JButtons located around the outside.
 
 From there I implemented two "AI" players that start on opposite sides of the board and whose goal is to destory the other's core, simulated as an oscillator known as a beacon.  An example of these can be seen in this picture here:
 
