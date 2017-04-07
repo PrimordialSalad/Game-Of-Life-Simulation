@@ -14,7 +14,7 @@ More details about the base simulation can be found at the link above.
 First I implemented the Game Of Life complete with a Graphical User Interface (GUI) to get a basis for the underlaying data structures and to have a basis for which to base my modifications on.  An example of the GUI can be seen here:
 
 ![Game of Life GUI example](http://i.imgur.com/OT4i5lv.png)
-Black squares denote alive cells and white ones denote dead cells.
+*Black squares denote alive cells and white ones denote dead cells.*
 
 The data structure I use is a Bit Set, part of the Java API, which works like a 1-D boolean array.  This is a generalization but the explanation works well enough for this project.  The alive cells are true and the dead cells are false.  More documentation for Bit Sets can be found [here](https://docs.oracle.com/javase/7/docs/api/java/util/BitSet.html)
 
@@ -23,7 +23,7 @@ The GUI, pictured above, has the functionality of allowing the user to place wha
 From there I implemented two "AI" players that start on opposite sides of the board and whose goal is to destory the other's core, simulated as an oscillator known as a beacon.  An example of these can be seen in this picture here:
 
 ![Game of Life GUI example 2](http://i.imgur.com/fYq1oie.png)
-The beacons are the two furthest shapes, on the farthest outside of the board.
+*The beacons are the two furthest shapes, on the farthest outside of the board.*
 
 To accomplish this goal the AI's fire a pattern known as a Spaceship,which can be seen as the two central shapes, which have the ability to move across the board using the 4 rules defined above.  More information on these in the link above.  
 
