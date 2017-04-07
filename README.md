@@ -13,7 +13,7 @@ More details about the base simulation can be found at the link above.
 # Game Of Life Combat Simulation
 First I implemented the Game Of Life complete with a Graphical User Interface (GUI) to get a basis for the underlaying data structures and to have a basis for which to base my modifications on.  An example of the GUI can be seen here:
 
-![Game of Life GUI example](http://i.imgur.com/OT4i5lv.png =100x20)
+![Game of Life GUI example](http://i.imgur.com/OT4i5lv.png)
 Black squares denote alive cells and white ones denote dead cells.
 
 The data structure I use is a Bit Set, part of the Java API, which works like a 1-D boolean array.  This is a generalization but the explanation works well enough for this project.  The alive cells are true and the dead cells are false.  More documentation for Bit Sets can be found [here](https://docs.oracle.com/javase/7/docs/api/java/util/BitSet.html)
